@@ -1,0 +1,18 @@
+<!-- {% extends 'forum/base.html' %}
+{% block title %}{{ topic.title }}{% endblock %}
+{% block content %}
+<h2>{{ topic.title }}</h2>
+<p>Created by {{ topic.created_by.username }} on {{ topic.created_at }}</p>
+<h3>Posts</h3>
+<ul>
+    {% for post in posts %}
+        <li><strong>{{ post.created_by.username }}:</strong> {{ post.content }} <em>({{ post.created_at }})</em></li>
+    {% endfor %}
+</ul>
+<h3>Add a Post</h3>
+<form method="post" action="{% url 'add_post' topic.id %}">
+    {% csrf_token %}
+    <textarea name="content" rows="4" required></textarea>
+    <button type="submit">Post</button>
+</form>
+{% endblock %} -->

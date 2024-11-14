@@ -1,0 +1,21 @@
+<!-- {% extends 'forum/base.html' %}
+{% block title %}Categories - DIY Forum{% endblock %}
+{% block content %}
+<h2>Categories</h2>
+<ul>
+    {% for category in categories %}
+        <li><a href="{% url 'topics' category.id %}">{{ category.name }}</a>: {{ category.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %} -->
+
+<!-- {% extends 'base.html' %}
+{% block title %}Categories{% endblock %}
+{% block content %}
+    <h2>Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'topics' category.id %}">{{ category.name }}</a> - {{ category.description }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %} -->

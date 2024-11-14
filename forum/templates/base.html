@@ -1,0 +1,32 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DIY Forum{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <h1><a href="{% url 'homepage' %}">DIY Forum</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'categories' %}">Categories</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'account_logout' %}">Logout</a> ({{ user.username }})</li>
+                {% else %}
+                    <li><a href="{% url 'account_login' %}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 DIY Forum. All rights reserved.</p>
+    </footer>
+</body>
+</html> -->

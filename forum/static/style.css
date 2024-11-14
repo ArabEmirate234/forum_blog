@@ -1,0 +1,148 @@
+/* Reset and Basic Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Header Styling */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5em;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styling */
+main {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+/* Messages Styling */
+.messages {
+    margin-bottom: 1em;
+    padding: 0.5em;
+}
+
+.message {
+    padding: 0.5em;
+    border-radius: 4px;
+    margin-bottom: 0.5em;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Button Styling */
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Form and Input Styling */
+form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+form textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Section Headings */
+.welcome h2 {
+    font-size: 1.5em;
+    color: #4CAF50;
+}
+
+.categories ul,
+.recent-topics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.categories li,
+.recent-topics li {
+    margin: 0.5em 0;
+}
+
+.categories a,
+.recent-topics a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.categories a:hover,
+.recent-topics a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #4CAF50;
+    color: #fff;
+}
