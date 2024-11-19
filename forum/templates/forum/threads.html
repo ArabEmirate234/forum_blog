@@ -1,0 +1,16 @@
+{% extends 'forum/base.html' %}
+{% block title %}Threads{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Threads</h1>
+    <ul class="list-group">
+        {% for thread in threads %}
+            <li class="list-group-item">
+                <strong>{{ thread.title }}</strong>
+                <small class="d-block">By {{ thread.user.username }} in {{ thread.category.name }}</small>
+                <small class="text-muted">{{ thread.created_at }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

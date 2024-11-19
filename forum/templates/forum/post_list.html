@@ -1,0 +1,16 @@
+{% extends 'forum/base.html' %}
+{% block title %}Posts{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h1>Posts</h1>
+    <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">
+                {{ post.content }}
+                <small class="d-block">By {{ post.user.username }} in {{ post.thread.title }}</small>
+                <small class="text-muted">{{ post.created_at }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
