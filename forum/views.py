@@ -88,14 +88,14 @@
 #     search_fields = ['content', 'thread__title', 'user__username']
 #     ordering_fields = ['created_at']
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView
 from rest_framework import viewsets, filters
-from .models import Category, Thread, Post
+from .models import Category, Thread, Post, Comment
 from .serializers import CategorySerializer, ThreadSerializer, PostSerializer
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 
 
@@ -162,6 +162,31 @@ def logout_view(request):
     """
     logout(request)
     return redirect('homepage')  # Redirect to homepage after logout
+
+
+def like_post(request, post_id):
+    """
+    Handle liking/unliking a post.
+    """
+    post = get_object_or_404(Post, id=post_id)
+    if request.user in post.likes.all():
+        post.likes.remove(request.user)  # Unlike
+        liked = False
+    else:
+        post.likes.add(request.user)  # Like
+        liked = True
+    return JsonResponse({'liked': liked, 'total_likes': post.total_likes()})
+
+
+def add_comment(request, post_id):
+    """
+    Handle adding a comment to a post.
+    """
+    if request.method == 'POST':
+        content = request.POST.get('content')
+        post = get_object_or_404(Post, id=post_id)
+        Comment.objects.create(post=post, user=request.user, content=content)
+        return redirect('posts')  # Redirect to the posts list or specific post
 
 
 # API Viewsets

@@ -6,9 +6,12 @@
     <ul class="list-group">
         {% for thread in threads %}
             <li class="list-group-item">
-                <strong>{{ thread.title }}</strong>
-                <small class="d-block">By {{ thread.user.username }} in {{ thread.category.name }}</small>
-                <small class="text-muted">{{ thread.created_at }}</small>
+                <h5>{{ thread.title }}</h5>
+                {% if thread.image %}
+                    <img src="{{ thread.image.url }}" alt="{{ thread.title }}" class="img-fluid" style="max-width: 150px;">
+                {% endif %}
+                <p>{{ thread.content|truncatewords:50 }}</p>
+                <small>By {{ thread.user.username }} in {{ thread.category.name }} | {{ thread.created_at }}</small>
             </li>
         {% endfor %}
     </ul>

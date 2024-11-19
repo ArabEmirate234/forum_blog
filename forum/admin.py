@@ -1,27 +1,26 @@
-from django.contrib import admin
-from .models import Category, Thread, Post  # Remove UserProfile
-
-# Register your models here
-admin.site.register(Category)
-admin.site.register(Thread)
-admin.site.register(Post)
-
-
 # from django.contrib import admin
-# from .models import UserProfile, Category, Topic, Post
+# from .models import Category, Thread, Post 
 
-# @admin.register(UserProfile)
-# class UserProfileAdmin(admin.ModelAdmin):
-#     list_display = ('user', 'points')
+# # Register your models here
+# admin.site.register(Category)
+# admin.site.register(Thread)
+# admin.site.register(Post)
 
-# @admin.register(Category)
-# class CategoryAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'description')
+from django.contrib import admin
+from .models import Category, Thread, Post, Comment
 
-# @admin.register(Topic)
-# class TopicAdmin(admin.ModelAdmin):
-#     list_display = ('title', 'category', 'created_by', 'created_at')
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'image')
 
-# @admin.register(Post)
-# class PostAdmin(admin.ModelAdmin):
-#     list_display = ('topic', 'created_by', 'created_at')
+@admin.register(Thread)
+class ThreadAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'user', 'created_at', 'updated_at', 'image')
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ('content', 'thread', 'user', 'created_at', 'updated_at', 'image', 'total_likes')
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('content', 'post', 'user', 'created_at')

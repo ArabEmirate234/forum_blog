@@ -44,6 +44,8 @@ from .views import (
     CategoryViewSet,
     ThreadViewSet,
     PostViewSet,
+    like_post,
+    add_comment,
 )
 
 # DRF Router for API Endpoints
@@ -60,6 +62,10 @@ urlpatterns = [
     path('posts/', PostListView.as_view(), name='posts'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='account_logout'),
+
+    # Like and Comment Actions
+    path('posts/<int:post_id>/like/', like_post, name='like_post'),
+    path('posts/<int:post_id>/comment/', add_comment, name='add_comment'),
 
     # API Endpoints
     path('', include(router.urls)),  # API routes
