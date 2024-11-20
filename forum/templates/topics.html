@@ -1,0 +1,10 @@
+<!-- {% extends 'base.html' %}
+{% block title %}Topics{% endblock %}
+{% block content %}
+    <h2>Topics in {{ category.name }}</h2>
+    <ul>
+        {% for topic in topics %}
+            <li><a href="{% url 'view_topic' topic.id %}">{{ topic.title }}</a> by {{ topic.created_by.username }} on {{ topic.created_at }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %} -->
